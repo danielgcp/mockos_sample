@@ -6,6 +6,18 @@
 
 Create API mocks **collaboratively**, **fully online** and with **custom code logic**.
 
+### New: LiveMocks with Faker.js Integration
+
+Mockos now includes powerful faker.js integration through the LiveMocks service, enabling you to generate realistic mock data for your API responses. Use faker.js directly in your mock response processors to create dynamic, realistic test data.
+
+**Key features:**
+- Direct faker.js access in mock responses
+- Pre-built generators for common data types
+- Schema-based data generation
+- Comprehensive documentation and examples
+
+See [LiveMocks Documentation](./docs/LIVEMOCKS_USAGE.md) for detailed usage instructions.
+
 ## Deployments
 
 - **Application** - https://mockos.io

@@ -3,10 +3,12 @@ import Drive from '@ioc:Adonis/Core/Drive'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { RequestContract } from '@ioc:Adonis/Core/Request'
 import { ResponseContract } from '@ioc:Adonis/Core/Response'
+import { generateFromSchema, generateByType } from 'App/Helpers/LiveMocks'
 import { HttpError } from 'App/Models/HttpError'
 import Project from 'App/Models/Project'
 import Response from 'App/Models/Response'
 import Route from 'App/Models/Route'
+import LiveMocks from 'App/Services/LiveMocks'
 import Token from 'App/Models/Token'
 import { Buffer } from 'buffer'
 import Sandbox from 'v8-sandbox'
@@ -150,6 +152,12 @@ export default class ApiController {
           body: request.body(),
           headers: request.headers(),
           content: enabledResponse.body,
+          // LiveMocks integration - provide faker.js functionality
+          liveMocks: LiveMocks,
+          faker: LiveMocks.faker,
+          // Helper functions for easier data generation
+          generateFromSchema,
+          generateByType,
         },
       })
       sandbox.shutdown()
