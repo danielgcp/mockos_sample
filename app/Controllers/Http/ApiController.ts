@@ -10,6 +10,7 @@ import Route from 'App/Models/Route'
 import Token from 'App/Models/Token'
 import { Buffer } from 'buffer'
 import Sandbox from 'v8-sandbox'
+import { faker } from '@faker-js/faker'
 
 export default class ApiController {
   public async mock({ request, params, response, i18n }: HttpContextContract) {
@@ -150,6 +151,7 @@ export default class ApiController {
           body: request.body(),
           headers: request.headers(),
           content: enabledResponse.body,
+          faker,
         },
       })
       sandbox.shutdown()
