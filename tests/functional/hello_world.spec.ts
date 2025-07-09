@@ -1,8 +1,9 @@
 import { test } from '@japa/runner'
 
-test('display welcome page', async ({ client }) => {
-  const response = await client.get('/')
+test('api routes exist', async ({ client }) => {
+  // Test that API routes work (they should return 400 for missing token)
+  const response = await client.get('/api')
 
-  response.assertStatus(200)
-  response.assertBodyContains({ hello: 'world' })
+  // Should return 400 for missing token, not 404
+  response.assertStatus(400)
 })
